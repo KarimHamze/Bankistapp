@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¡Feliz Cumpleaños!</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0e68c;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+      }
+      .container {
+        text-align: center;
+      }
+      .message {
+        font-size: 2em;
+        color: #ff69b4;
+      }
+      .button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        color: white;
+        background-color: #ff69b4;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .balloons {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+      }
+      .balloon {
+        width: 50px;
+        height: 70px;
+        background-color: #ff69b4;
+        border-radius: 50% 50% 0 0;
+        position: relative;
+      }
+      .balloon::before {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 20px;
+        background-color: #ff69b4;
+      }
+      @keyframes fly {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-100vh);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="message">¡Feliz Cumpleaños!</div>
+      <button class="button" onclick="releaseBalloons()">
+        Haz clic aquí para una sorpresa
+      </button>
+    </div>
+    <div class="balloons" id="balloons">
+      <div class="balloon" style="background-color: #ff6347"></div>
+      <div class="balloon" style="background-color: #ffa500"></div>
+      <div class="balloon" style="background-color: #ffff00"></div>
+      <div class="balloon" style="background-color: #adff2f"></div>
+      <div class="balloon" style="background-color: #1e90ff"></div>
+    </div>
+    <script>
+      function releaseBalloons() {
+        const balloons = document.getElementById('balloons');
+        balloons.style.animation = 'fly 5s ease-in-out forwards';
+      }
+    </script>
+  </body>
+</html>
